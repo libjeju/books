@@ -204,8 +204,9 @@ html, body {
     0 1px 4px rgba(0,0,0,0.04);
 }
 .pl .book-title  { color: #0C1422; }
-.pl .book-author { color: rgba(12,20,34,0.38); }
-.pl .book-desc   { color: rgba(12,20,34,0.5); }
+.pl .book-author { color: rgba(12,20,34,0.48); }
+/* White-background cards: improve legibility while preserving a calm editorial tone. */
+.pl .book-desc   { color: rgba(12,20,34,0.76); }
 .pl .meta-sep    { background: rgba(12,20,34,0.18); }
 
 /* ── Dark variant ── */
@@ -286,9 +287,12 @@ html, body {
 }
 .book-desc {
   font-size: clamp(11.5px, 2.5vw, 13.5px);
-  font-weight: 300; line-height: 1.7;
-  word-break: keep-all; overflow-wrap: break-word;
-  max-width: 96%;
+  font-weight: 400;
+  line-height: 1.62;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  max-width: min(92%, 430px);
+  text-wrap: balance;
 }
 
 /* ── Per-card accents ── */
@@ -444,10 +448,14 @@ html, body {
 }
 .book-desc {
   width: 100%;
-  max-width: 100%;
+  max-width: min(92%, 430px);
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
-.book-desc .desc-line { display: block; }
+/* Do not force manual two-line breaks. Let the browser wrap Korean text naturally. */
+.book-desc .desc-line { display: inline; }
+.book-desc .desc-line + .desc-line::before { content: " "; }
 .card-08 .sec-label {
   font-size: calc(clamp(8px, 1.8vw, 10px) + 1pt);
 }
@@ -464,6 +472,15 @@ html, body {
   width: 86%;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* ── card 08 dash visibility fix ── */
+.card-08 .sec-books li::before {
+  content: '— ';
+  color: #8C5A20;
+  font-size: 13px;
+  font-weight: 800;
+  opacity: 1;
 }
 .card-09 .access-item {
   display: grid;
