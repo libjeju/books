@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>제주대학교 중앙도서관 추천도서 아카이브</title>
+  <meta name="description" content="제주대학교 중앙도서관 추천도서 뉴스레터, 카드뉴스, 포스터 자료 아카이브">
+  <style>
+    :root{--navy:#0F1829;--ivory:#F5F0E8;--gold:#8A5B1F;--gray:#5B6472;--border:#DED9CF;--white:#fff}
+    *{box-sizing:border-box}
+    body{margin:0;background:#F2F0EB;color:var(--navy);font-family:"Noto Sans CJK KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.7}
+    .wrap{max-width:1040px;margin:0 auto;padding:48px 20px 80px}
+    header{padding:34px 0 28px;border-bottom:1px solid var(--border)}
+    .eyebrow{font-size:14px;letter-spacing:.08em;color:var(--gold);font-weight:700}
+    h1{font-size:clamp(30px,5vw,52px);line-height:1.16;margin:10px 0 16px;letter-spacing:-.04em}
+    .lead{font-size:18px;color:var(--gray);max-width:760px;margin:0}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:34px}
+    .card{background:var(--white);border:1px solid var(--border);border-radius:18px;padding:24px;box-shadow:0 12px 30px rgba(15,24,41,.07)}
+    .issue{font-size:13px;font-weight:800;color:var(--gold);letter-spacing:.05em}
+    h2{font-size:24px;margin:8px 0 8px;letter-spacing:-.03em}
+    p{margin:0 0 16px;color:var(--gray)}
+    .links{display:flex;flex-wrap:wrap;gap:8px}
+    a.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border:1px solid var(--navy);border-radius:999px;padding:9px 14px;color:var(--navy);font-weight:700;font-size:14px;background:#fff}
+    a.btn.primary{background:var(--navy);color:#fff}
+    .note{margin-top:32px;padding:18px 20px;border:1px dashed #b9ad9d;border-radius:14px;color:var(--gray);font-size:14px;background:rgba(255,255,255,.55)}
+    footer{margin-top:46px;color:var(--gray);font-size:13px}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <div class="eyebrow">JEJU NATIONAL UNIVERSITY LIBRARY</div>
+      <h1>제주대학교 중앙도서관<br>추천도서 아카이브</h1>
+      <p class="lead">격월로 발행하는 추천도서 뉴스레터, 카드뉴스, 포스터 다운로드 자료를 회차별로 모아두는 공개 페이지입니다.</p>
+    </header>
+
+    <section class="grid" aria-label="추천도서 회차 목록">
+      <article class="card">
+        <div class="issue">2026년 4번째 추천도서</div>
+        <h2>달을 읽는 여름밤</h2>
+        <p>뉴스레터, 카드뉴스, 이메일 발송용 페이지, 포스터 다운로드 자료를 확인할 수 있습니다.</p>
+        <div class="links">
+          <a class="btn primary" href="./issues/2026-04/">회차 홈</a>
+          <a class="btn" href="./issues/2026-04/newsletter/2026-07-08/">뉴스레터</a>
+          <a class="btn" href="./issues/2026-04/cardnews/2026-07-08/">카드뉴스</a>
+          <a class="btn" href="./issues/2026-04/email/2026-07-08/">메일용</a>
+          <a class="btn" href="./issues/2026-04/posters/">포스터</a>
+        </div>
+      </article>
+    </section>
+
+    <div class="note">
+      새 회차를 추가할 때는 <strong>issues/연도-회차/</strong> 폴더를 새로 만들고 그 안에 newsletter, cardnews, email, assets, posters 폴더를 함께 보관합니다. 기존 회차 폴더는 수정하지 않고 보존합니다.
+    </div>
+
+    <footer>© 제주대학교 중앙도서관</footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>메일 발송용 본문 복사</title>
+<style>body{margin:0;background:#eef0f3;color:#0F1829;font-family:"Noto Sans CJK KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.7}.page{max-width:760px;margin:auto;padding:32px 20px 70px}.tool{background:#fff;border-radius:10px;padding:26px;box-shadow:0 8px 28px rgba(15,24,41,.08);margin-bottom:22px}.tool h1{font-size:1.5rem;margin:0 0 8px}.tool p{color:#5B6472}.field{background:#F7F7F4;border:1px solid #d8dce3;border-radius:6px;padding:14px;margin:14px 0}.label{font-size:.78rem;color:#5B6472;font-weight:700;margin-bottom:4px}.value{word-break:break-all}.buttons{display:flex;gap:10px;flex-wrap:wrap}.buttons button{min-height:44px;border:0;border-radius:4px;padding:10px 16px;font-weight:700;cursor:pointer}.primary{background:#0F1829;color:#fff}.secondary{background:#E8E1D5;color:#4f3615}.mailbox{max-width:620px;margin:auto;background:#fff;border:1px solid #D8DCE3}.mail-head{padding:25px 28px;background:#0F1829;color:#fff}.mail-head small{color:#D4A855;font-weight:700}.mail-head h2{font-family:"Noto Serif CJK KR",serif;font-size:2rem;line-height:1.25;margin:8px 0}.mail-body{padding:28px;font-size:16px;color:#374151}.mail-body p{margin:0 0 18px}.mail-body .lead{font-size:1.08rem;color:#0F1829}.cta{display:block;background:#0F1829;color:#fff!important;text-decoration:none;text-align:center;font-weight:700;padding:14px 18px;border-radius:4px;margin:24px 0}.subcta{display:block;border:1px solid #0F1829;color:#0F1829!important;text-decoration:none;text-align:center;font-weight:700;padding:12px 18px;border-radius:4px;margin:12px 0}.info{background:#F7F7F4;border-left:4px solid #8A5B1F;padding:16px;margin:22px 0}.sig{color:#5B6472}.status{min-height:24px;color:#17612f;font-weight:700;margin-top:10px}@media(max-width:600px){.tool{padding:20px}.mail-head,.mail-body{padding:22px}.buttons button{width:100%}}</style></head><body><div class="page">
+<section class="tool"><h1>제주대학교 웹메일 발송용</h1><p>GitHub Pages에 게시한 뒤 이 페이지를 열면 뉴스레터 주소가 자동으로 들어갑니다. 제목과 본문을 복사해 웹메일의 서식 있는 편지쓰기 화면에 붙여 넣으세요.</p>
+<div class="field"><div class="label">권장 제목</div><div class="value" id="subject">[제주대학교 중앙도서관] 추천도서 뉴스레터를 시작합니다 ― 달을 읽는 여름밤</div></div>
+<div class="field"><div class="label">뉴스레터 주소</div><div class="value" id="urlView"></div></div>
+<div class="buttons"><button class="primary" id="copySubject">제목 복사</button><button class="primary" id="copyRich">서식 본문 복사</button><button class="secondary" id="copyText">일반 텍스트 복사</button></div><div class="status" id="status" aria-live="polite"></div></section>
+<div id="mailContent" style="max-width:620px;margin:0 auto;background:#ffffff;border:1px solid #d8dce3;font-family:Arial,'Malgun Gothic',sans-serif;color:#374151;line-height:1.7;">
+  <div style="padding:25px 28px;background:#0F1829;color:#ffffff;">
+    <div style="color:#D4A855;font-size:13px;font-weight:700;letter-spacing:1px;">2026년 7–8월 추천도서</div>
+    <div style="font-family:Georgia,'Malgun Gothic',serif;font-size:30px;font-weight:700;line-height:1.25;margin:8px 0;">달을 읽는 여름밤</div>
+    <div style="font-size:15px;">우주·천문학·SF로 떠나는 지적 여행</div>
+  </div>
+  <div style="padding:28px;font-size:16px;color:#374151;">
+    <p style="margin:0 0 18px;">안녕하세요. 제주대학교 중앙도서관입니다.</p>
+    <p style="margin:0 0 18px;font-size:17px;color:#0F1829;">대학 구성원을 위한 <strong>추천도서 뉴스레터</strong>를 새롭게 시작합니다.</p>
+    <p style="margin:0 0 18px;">첫 번째 주제는 <strong>「달을 읽는 여름밤」</strong>입니다. 달을 연구하는 과학자의 일상에서 우주의 기원과 블랙홀, 외계 문명과 작고 푸른 지구까지. 우주·천문학·SF를 아우르는 추천도서 20권을 다섯 가지 주제로 엮었습니다.</p>
+    <p style="margin:0 0 18px;">어느 책을 먼저 펼치든 괜찮습니다.<br><strong>이 우주에는 틀린 입구가 없습니다.</strong></p>
+    <a id="newsletterLink" href="#" style="display:block;background:#0F1829;color:#ffffff;text-decoration:none;text-align:center;font-weight:700;padding:14px 18px;border-radius:4px;margin:24px 0;">전체 뉴스레터 보기</a>
+    <a id="cardnewsLink" href="#" style="display:block;border:1px solid #0F1829;color:#0F1829;text-decoration:none;text-align:center;font-weight:700;padding:12px 18px;border-radius:4px;margin:12px 0;">카드뉴스 보기</a>
+    <div style="background:#F7F7F4;border-left:4px solid #8A5B1F;padding:16px;margin:22px 0;"><strong>전시 기간</strong>　2026년 7월 1일–8월 31일<br><strong>전시 장소</strong>　중앙디지털도서관 2층 추천도서 서가<br><strong>대상</strong>　제주대학교 구성원</div>
+    <p style="margin:0 0 18px;">책장을 넘기는 순간, 지구 밖의 세계가 시작됩니다.</p>
+    <p style="margin:0;color:#5B6472;">제주대학교 중앙도서관</p>
+  </div>
+</div></div>
+<script>
+const newsletterUrl=new URL('../../newsletter/2026-07-08/',location.href).href;const cardnewsUrl=new URL('../../cardnews/2026-07-08/',location.href).href;document.getElementById('urlView').textContent=newsletterUrl;document.getElementById('newsletterLink').href=newsletterUrl;document.getElementById('cardnewsLink').href=cardnewsUrl;const status=document.getElementById('status');
+async function copyText(t,msg){await navigator.clipboard.writeText(t);status.textContent=msg;}
+document.getElementById('copySubject').onclick=()=>copyText(document.getElementById('subject').textContent,'제목을 복사했습니다.');
+document.getElementById('copyText').onclick=()=>{const t=`안녕하세요. 제주대학교 중앙도서관입니다.\n\n대학 구성원을 위한 추천도서 뉴스레터를 새롭게 시작합니다.\n\n첫 번째 주제는 「달을 읽는 여름밤」입니다. 달을 연구하는 과학자의 일상에서 우주의 기원과 블랙홀, 외계 문명과 작고 푸른 지구까지. 우주·천문학·SF를 아우르는 추천도서 20권을 다섯 가지 주제로 엮었습니다.\n\n어느 책을 먼저 펼치든 괜찮습니다. 이 우주에는 틀린 입구가 없습니다.\n\n전체 뉴스레터: ${newsletterUrl}\n카드뉴스: ${cardnewsUrl}\n\n전시 기간: 2026년 7월 1일–8월 31일\n전시 장소: 중앙디지털도서관 2층 추천도서 서가\n대상: 제주대학교 구성원\n\n책장을 넘기는 순간, 지구 밖의 세계가 시작됩니다.\n\n제주대학교 중앙도서관`;copyText(t,'일반 텍스트 본문을 복사했습니다.');};
+document.getElementById('copyRich').onclick=async()=>{const node=document.getElementById('mailContent');const html=node.outerHTML;const text=node.innerText;try{await navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([html],{type:'text/html'}),'text/plain':new Blob([text],{type:'text/plain'})})]);status.textContent='서식 본문을 복사했습니다. 웹메일 편지쓰기 화면에 붙여 넣으세요.';}catch(e){const r=document.createRange();r.selectNode(node);const s=getSelection();s.removeAllRanges();s.addRange(r);document.execCommand('copy');s.removeAllRanges();status.textContent='본문을 복사했습니다. 붙여 넣은 뒤 링크를 시험해 보세요.';}};
+</script></body></html>

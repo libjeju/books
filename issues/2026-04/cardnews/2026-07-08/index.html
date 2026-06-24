@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="제주대학교 중앙도서관 2026년 7–8월 이 달의 추천도서 카드뉴스 — 달을 읽는 여름밤" name="description"/>
+<title>달을 읽는 여름밤 — 카드뉴스 v8 | 제주대학교 중앙도서관</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700;900&amp;family=Noto+Sans+KR:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --dark:    #0C1422;
+  --white:   #FFFFFF;
+  --ivory:   #F5F0E8;
+  --gold:    #C09050;
+  --gold-lt: #D4A855;
+  --c1: #4A7BB5;
+  --c2: #7B6BAE;
+  --c4: #9E5A7A;
+  --c5: #B8843A;
+}
+
+html, body {
+  height: 100%;
+  background: #0a0a0a;
+  font-family: 'Noto Sans KR','Noto Sans CJK KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── PAGE ── */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  gap: 14px;
+}
+
+/* ── VIEWER: square, clips everything ── */
+.viewer {
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 32px 96px rgba(0,0,0,0.75);
+  user-select: none;
+}
+
+/* ── TRACK: horizontal slide strip ── */
+.track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+  will-change: transform;
+}
+
+/* ── CARD: fills one viewer slot ── */
+.card {
+  flex: 0 0 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ── NAV BUTTONS ── */
+.nav-btn {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  z-index: 10;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: none; cursor: pointer;
+  background: rgba(0,0,0,0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff; font-size: 20px;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0.45; transition: opacity 0.2s, background 0.2s;
+}
+.nav-btn:hover { opacity: 1; background: rgba(0,0,0,0.4); }
+.nav-prev { left: 10px; }
+.nav-next { right: 10px; }
+
+/* ── CONTROLS BAR ── */
+.controls-bar {
+  width: 100%; max-width: 560px;
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 12px;
+}
+.counter {
+  font-size: 11px; color: rgba(255,255,255,0.3);
+  letter-spacing: 1px; min-width: 36px;
+}
+.dots-row {
+  flex: 1; display: flex;
+  justify-content: center; align-items: center; gap: 6px;
+}
+.dot {
+  height: 5px; width: 5px; border-radius: 3px;
+  background: rgba(255,255,255,0.18);
+  border: none; padding: 0; cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.dot.active { background: var(--gold); width: 18px; }
+.auto-btn {
+  font-size: 10px; font-family: 'Noto Sans KR','Noto Sans CJK KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  color: rgba(255,255,255,0.32);
+  background: none; border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px; padding: 4px 10px;
+  cursor: pointer; white-space: nowrap; transition: all 0.2s;
+}
+.auto-btn:hover { color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.28); }
+.auto-btn.playing { color: var(--gold); border-color: var(--gold); }
+.credit {
+  font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,0.15);
+}
+
+/* ════════════════════════════════
+   CARD 01 — TITLE
+════════════════════════════════ */
+.card-01 {
+  background: var(--dark);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+.card-01::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 40%,
+    rgba(192,144,80,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.card-01 .c {
+  position: relative; z-index: 1;
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: space-between;
+  padding: 8% 10%; text-align: center;
+}
+.card-01 .lib-badge {
+  font-size: clamp(9px, 2vw, 11px);
+  font-weight: 400; letter-spacing: 3.5px;
+  color: var(--gold); text-transform: uppercase;
+}
+.card-01 .moon { width: clamp(50px, 17%, 90px); flex-shrink: 0; }
+.card-01 .main-title {
+  font-family: 'Noto Serif KR','Noto Serif CJK KR','AppleMyungjo','Malgun Gothic',serif;
+  font-size: clamp(34px, 11vw, 62px);
+  font-weight: 700; color: var(--ivory);
+  line-height: 1.04; letter-spacing: -2px;
+}
+.card-01 .divider {
+  width: 22px; height: 1px;
+  background: var(--gold); opacity: 0.55; flex-shrink: 0;
+}
+.card-01 .subtitle {
+  font-size: clamp(12px, 2.7vw, 14.5px);
+  font-weight: 300; letter-spacing: 1.5px;
+  color: rgba(245,240,232,0.7);
+}
+.card-01 .bottom-bar {
+  width: 100%; display: flex;
+  align-items: center; justify-content: space-between;
+  padding-top: 5%; border-top: 1px solid rgba(255,255,255,0.07);
+  flex-shrink: 0;
+}
+.card-01 .b-lib {
+  font-size: clamp(11px, 2.5vw, 13.5px); color: rgba(255,255,255,0.6);
+}
+.card-01 .b-date {
+  font-family: 'Noto Serif KR','Noto Serif CJK KR','AppleMyungjo','Malgun Gothic',serif;
+  font-size: clamp(12px, 2.7vw, 14.5px); color: var(--gold);
+}
+
+
+/* ════════════════════════════════
+   PICK CARDS — CSS Grid layout
+   grid-template-rows: 50% 50%
+   ensures definite heights for children
+════════════════════════════════ */
+.pick-card {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 100%;
+}
+
+/* ── Light variant (white bg) ── */
+.pl { background: #FFFFFF; }
+.pl .cover-zone { background: #F2F2F0; }
+.pl .book-cover-img {
+  box-shadow:
+    0 20px 56px rgba(0,0,0,0.12),
+    0 6px 16px rgba(0,0,0,0.07),
+    0 1px 4px rgba(0,0,0,0.04);
+}
+.pl .book-title  { color: #0C1422; }
+.pl .book-author { color: rgba(12,20,34,0.38); }
+.pl .book-desc   { color: rgba(12,20,34,0.5); }
+.pl .meta-sep    { background: rgba(12,20,34,0.18); }
+
+/* ── Dark variant ── */
+.pd { background: var(--dark); }
+.pd .cover-zone { background: #070C16; }
+.pd .book-cover-img {
+  box-shadow:
+    0 20px 56px rgba(0,0,0,0.65),
+    0 8px 20px rgba(0,0,0,0.45),
+    0 2px 6px rgba(0,0,0,0.3);
+}
+.pd .book-title  { color: var(--ivory); }
+.pd .book-author { color: rgba(245,240,232,0.38); }
+.pd .book-desc   { color: rgba(245,240,232,0.46); }
+.pd .meta-sep    { background: rgba(245,240,232,0.18); }
+
+/* ── COVER ZONE (top 50%) ── */
+.cover-zone {
+  /* grid item: inherits 50% of card height as definite height */
+  overflow: hidden;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5% 13% 3%;
+}
+
+/* Image: max-height 100% of cover-zone content box, auto width */
+.book-cover-img {
+  display: block;
+  max-height: 100%;
+  max-width: 52%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* ── TEXT ZONE (bottom 50%) ── */
+.text-zone {
+  overflow: hidden;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3% 8% 5%;
+  text-align: center;
+  gap: 0;
+}
+
+.meta-row {
+  display: flex; align-items: center;
+  justify-content: center; gap: 8px;
+  margin-bottom: clamp(7px, 1.6%, 10px);
+}
+.pick-num {
+  font-size: clamp(9px, 1.9vw, 10.5px);
+  font-weight: 500; letter-spacing: 3px; text-transform: uppercase;
+}
+.meta-sep { width: 1px; height: 9px; flex-shrink: 0; }
+.book-tag {
+  font-size: clamp(9px, 1.9vw, 10.5px);
+  font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 2px 8px; border-radius: 20px;
+}
+.book-title {
+  font-family: 'Noto Serif KR','Noto Serif CJK KR','AppleMyungjo','Malgun Gothic',serif;
+  font-weight: 700; line-height: 1.15;
+  word-break: keep-all; overflow-wrap: break-word;
+  margin-bottom: clamp(5px, 1.2%, 8px);
+}
+.book-author {
+  font-size: clamp(12.5px, 2.8vw, 14.5px);
+  font-weight: 300; letter-spacing: 0.2px;
+  margin-bottom: clamp(6px, 1.4%, 9px);
+}
+.book-desc {
+  font-size: clamp(11.5px, 2.5vw, 13.5px);
+  font-weight: 300; line-height: 1.7;
+  word-break: keep-all; overflow-wrap: break-word;
+  max-width: 96%;
+}
+
+/* ── Per-card accents ── */
+.card-02 .pick-num { color: var(--c2); }
+.card-02 .book-tag { color: var(--c2); background: rgba(123,107,174,0.08); border: 1px solid rgba(123,107,174,0.22); }
+.card-02 .book-title { font-size: clamp(26px, 9vw, 46px); }
+
+.card-03 .pick-num { color: var(--c1); }
+.card-03 .book-tag { color: var(--c1); background: rgba(74,123,181,0.1); border: 1px solid rgba(74,123,181,0.24); }
+.card-03 .book-title { font-size: clamp(17px, 6vw, 30px); }
+
+.card-04 .pick-num { color: var(--c4); }
+.card-04 .book-tag { color: var(--c4); background: rgba(158,90,122,0.07); border: 1px solid rgba(158,90,122,0.22); }
+.card-04 .book-title { font-size: clamp(22px, 7.8vw, 40px); }
+
+.card-05 .pick-num { color: var(--c4); }
+.card-05 .book-tag { color: var(--c4); background: rgba(158,90,122,0.1); border: 1px solid rgba(158,90,122,0.24); }
+.card-05 .book-title { font-size: clamp(28px, 9.5vw, 50px); }
+
+.card-06 .pick-num { color: var(--c5); }
+.card-06 .book-tag { color: var(--c5); background: rgba(184,132,58,0.08); border: 1px solid rgba(184,132,58,0.22); }
+.card-06 .book-title { font-size: clamp(14px, 5.3vw, 27px); }
+
+.card-07 .pick-num { color: var(--gold-lt); }
+.card-07 .book-tag { color: var(--gold-lt); background: rgba(212,168,85,0.08); border: 1px solid rgba(212,168,85,0.2); }
+.card-07 .book-title { font-size: clamp(22px, 7.8vw, 40px); }
+
+
+/* ════════════════════════════════
+   CARD 08 — REMAINING BOOKS
+════════════════════════════════ */
+.card-08 {
+  background: #FAFAF8;
+  display: flex; flex-direction: column;
+}
+.card-08 .inner {
+  display: flex; flex-direction: column;
+  height: 100%; overflow: hidden;
+  padding: 7% 7% 6%;
+}
+.card-08 .hdr {
+  display: flex; align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 4%; padding-bottom: 3%;
+  border-bottom: 1px solid rgba(12,20,34,0.08);
+  flex-shrink: 0;
+}
+.card-08 .hdr h2 {
+  font-family: 'Noto Serif KR','Noto Serif CJK KR','AppleMyungjo','Malgun Gothic',serif;
+  font-size: clamp(16px, 5vw, 26px);
+  font-weight: 700; color: var(--dark);
+}
+.card-08 .hdr span {
+  font-size: clamp(10px, 2vw, 12px);
+  color: rgba(12,20,34,0.34);
+}
+.card-08 .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4% 5%;
+  flex: 1; min-height: 0; overflow: hidden;
+  align-content: start;
+}
+.sec-label {
+  font-size: clamp(8px, 1.8vw, 10px);
+  font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 4px; padding-bottom: 4px;
+  border-bottom: 1px solid rgba(192,144,80,0.18);
+}
+.sec-books { list-style: none; margin-top: 3px; }
+.sec-books li {
+  font-size: clamp(10px, 2.2vw, 12.5px);
+  font-weight: 400; color: var(--dark);
+  line-height: 1.6; word-break: keep-all; padding: 1px 0;
+}
+.sec-books li::before { content: '— '; color: rgba(192,144,80,0.4); font-size: 9px; }
+
+
+/* ════════════════════════════════
+   CARD 09 — CLOSING
+════════════════════════════════ */
+.card-09 {
+  background: var(--dark);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+.card-09::before, .card-09::after {
+  content: '';
+  position: absolute; border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.card-09::before { width: 72%; aspect-ratio: 1/1; border: 1px solid rgba(192,144,80,0.09); }
+.card-09::after  { width: 48%; aspect-ratio: 1/1; border: 1px solid rgba(192,144,80,0.14); }
+
+.card-09 .c {
+  position: relative; z-index: 1;
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 8% 11%; text-align: center; gap: 5%;
+}
+.card-09 .c-label {
+  font-size: clamp(9px, 2vw, 11px);
+  font-weight: 400; letter-spacing: 3.5px; text-transform: uppercase;
+  color: var(--gold); opacity: 0.85;
+}
+.card-09 .c-title {
+  font-family: 'Noto Serif KR','Noto Serif CJK KR','AppleMyungjo','Malgun Gothic',serif;
+  font-size: clamp(22px, 7.5vw, 40px);
+  font-weight: 700; color: var(--ivory);
+  line-height: 1.2; letter-spacing: -1px;
+}
+.card-09 .gold-rule {
+  width: 22px; height: 1px;
+  background: var(--gold); opacity: 0.5; flex-shrink: 0;
+}
+.card-09 .access-box {
+  display: flex; flex-direction: column; gap: 9px; width: 100%;
+}
+.card-09 .access-item {
+  display: flex; align-items: flex-start;
+  gap: 14px; text-align: left;
+}
+.card-09 .a-badge {
+  font-size: clamp(9px, 2vw, 10.5px);
+  font-weight: 500; letter-spacing: 0.5px; color: var(--gold);
+  background: rgba(192,144,80,0.1); border: 1px solid rgba(192,144,80,0.2);
+  border-radius: 3px;
+  width: 56px; height: 26px;
+  display: inline-flex; align-items: center; justify-content: center;
+  white-space: nowrap; flex-shrink: 0; margin-top: 2px;
+}
+.card-09 .a-text {
+  font-size: clamp(10px, 2.2vw, 12.5px);
+  font-weight: 300; color: rgba(245,240,232,0.5);
+  line-height: 1.65; word-break: keep-all;
+}
+.card-09 .a-text strong { color: rgba(245,240,232,0.82); font-weight: 500; }
+.card-09 .c-footer {
+  font-size: clamp(9px, 1.9vw, 11px);
+  color: rgba(255,255,255,0.75); letter-spacing: 0.5px;
+}
+
+
+/* ── v8 requested revisions ── */
+.card-01 .lib-badge {
+  font-size: clamp(11px, 2.5vw, 13.5px);
+  letter-spacing: 0.45px;
+  text-transform: none;
+  white-space: nowrap;
+}
+.book-desc {
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+}
+.book-desc .desc-line { display: block; }
+.card-08 .sec-label {
+  font-size: calc(clamp(8px, 1.8vw, 10px) + 1pt);
+}
+.card-08 .sec-books li {
+  font-size: calc(clamp(10px, 2.2vw, 12.5px) + 1pt);
+  line-height: 1.52;
+}
+.card-09 .c-label {
+  letter-spacing: 0.45px;
+  text-transform: none;
+  white-space: nowrap;
+}
+.card-09 .access-box {
+  width: 86%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.card-09 .access-item {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 330px);
+  align-items: center;
+  justify-content: center;
+}
+.card-09 .a-text { width: 100%; }
+
+/* ── GitHub Pages utilities ── */
+.download-row {
+  width: 100%; max-width: 560px;
+  display: flex; justify-content: center; flex-wrap: wrap; gap: 8px;
+}
+.download-link {
+  min-height: 40px; display: inline-flex; align-items: center; justify-content: center;
+  padding: 8px 14px; border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 18px; color: rgba(255,255,255,0.78);
+  font-size: 11px; font-weight: 600; text-decoration: none;
+}
+.download-link:hover, .download-link:focus-visible {
+  border-color: var(--gold); color: var(--gold); outline: none;
+}
+.nav-btn:focus-visible, .dot:focus-visible, .auto-btn:focus-visible {
+  outline: 2px solid var(--gold); outline-offset: 3px;
+}
+.viewer { touch-action: pan-y; }
+html.export-mode body { background: transparent; }
+html.export-mode .page { padding: 0; display: block; min-height: auto; }
+html.export-mode .viewer { width: 540px; max-width: none; height: 540px; border-radius: 0; box-shadow: none; }
+html.export-mode .track { transition: none !important; }
+html.export-mode .controls-bar,
+html.export-mode .download-row,
+html.export-mode .credit,
+html.export-mode .nav-btn { display: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  .track, .dot, .nav-btn, .auto-btn { transition: none !important; }
+}
+@media (max-width: 430px) {
+  .page { padding-left: 10px; padding-right: 10px; }
+  .card-01 .lib-badge, .card-09 .c-label { letter-spacing: 0.2px; }
+  .card-09 .access-box { width: 90%; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+<div class="viewer" id="viewer">
+<div class="track" id="track">
+<!-- ══ CARD 01: Title ══ -->
+<div class="card card-01">
+<div class="c">
+<span class="lib-badge">제주대학교 중앙도서관 이 달의 추천도서</span>
+<div class="moon">
+<svg viewbox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<radialgradient cx="38%" cy="30%" id="mg" r="60%">
+<stop offset="0%" stop-color="#FAF4E6"></stop>
+<stop offset="55%" stop-color="#EEE0C4"></stop>
+<stop offset="100%" stop-color="#BEA884"></stop>
+</radialgradient>
+</defs>
+<circle cx="40" cy="40" fill="none" r="37" stroke="rgba(192,144,80,0.16)" stroke-width="0.7"></circle>
+<circle cx="40" cy="40" fill="url(#mg)" r="27"></circle>
+<circle cx="32" cy="34" fill="rgba(165,150,125,0.28)" r="3"></circle>
+<circle cx="47" cy="30" fill="rgba(165,150,125,0.2)" r="2"></circle>
+<circle cx="46" cy="48" fill="rgba(165,150,125,0.22)" r="4"></circle>
+<circle cx="34" cy="48" fill="rgba(165,150,125,0.18)" r="1.8"></circle>
+<circle cx="40" cy="2.5" fill="rgba(192,144,80,0.75)" r="1.8"></circle>
+</svg>
+</div>
+<h1 class="main-title">달을<br/>읽는<br/>여름밤</h1>
+<div class="divider"></div>
+<p class="subtitle">우주 · 천문학 · SF · 20권</p>
+<div class="bottom-bar">
+<span class="b-lib">제주대학교 중앙도서관</span>
+<span class="b-date">2026. 07–08</span>
+</div>
+</div>
+</div>
+<!-- ══ CARD 02: 코스모스 ══ -->
+<div class="card pick-card pl card-02">
+<div class="cover-zone">
+<img alt="코스모스 표지" class="book-cover-img" decoding="sync" loading="eager" src="../../assets/covers/2026-07-08/cosmos.png"/>
+</div>
+<div class="text-zone">
+<div class="meta-row">
+<span class="pick-num">Pick 01</span>
+<span class="meta-sep"></span>
+<span class="book-tag">과학 교양</span>
+</div>
+<h2 class="book-title">코스모스</h2>
+<p class="book-author">칼 세이건 (Carl Sagan)</p>
+<p class="book-desc">우주의 역사와 과학의 탐구, 인간 문명의 이야기를 함께 엮은 과학 교양의 고전.</p>
+</div>
+</div>
+<!-- ══ CARD 03: 천문학자는 별을 보지 않는다 ══ -->
+<div class="card pick-card pd card-03">
+<div class="cover-zone">
+<img alt="천문학자는 별을 보지 않는다 표지" class="book-cover-img" decoding="sync" loading="eager" src="../../assets/covers/2026-07-08/astronomer.png"/>
+</div>
+<div class="text-zone">
+<div class="meta-row">
+<span class="pick-num">Pick 02</span>
+<span class="meta-sep"></span>
+<span class="book-tag">과학 에세이</span>
+</div>
+<h2 class="book-title">천문학자는<br/>별을 보지 않는다</h2>
+<p class="book-author">심채경</p>
+<p class="book-desc"><span class="desc-line">달을 연구하는 천문학자의 일과 삶을 담은 에세이.</span><span class="desc-line">낭만 너머, 연구자의 시간을 담담하게 들려준다.</span></p>
+</div>
+</div>
+<!-- ══ CARD 04: 프로젝트 헤일메리 ══ -->
+<div class="card pick-card pl card-04">
+<div class="cover-zone">
+<img alt="프로젝트 헤일메리 표지" class="book-cover-img" decoding="sync" loading="eager" src="../../assets/covers/2026-07-08/project-hail-mary.png"/>
+</div>
+<div class="text-zone">
+<div class="meta-row">
+<span class="pick-num">Pick 03</span>
+<span class="meta-sep"></span>
+<span class="book-tag">SF 소설</span>
+</div>
+<h2 class="book-title">프로젝트<br/>헤일메리</h2>
+<p class="book-author">앤디 위어 (Andy Weir)</p>
+<p class="book-desc"><span class="desc-line">기억을 잃은 채 홀로 깨어난 과학자의 생존과 구조 임무.</span><span class="desc-line">과학적 문제 해결과 뜻밖의 협력이 빠른 서사로 이어진다.</span></p>
+</div>
+</div>
+<!-- ══ CARD 05: 콘택트 ══ -->
+<div class="card pick-card pd card-05">
+<div class="cover-zone">
+<img alt="콘택트 표지" class="book-cover-img" decoding="sync" loading="eager" src="../../assets/covers/2026-07-08/contact.png"/>
+</div>
+<div class="text-zone">
+<div class="meta-row">
+<span class="pick-num">Pick 04</span>
+<span class="meta-sep"></span>
+<span class="book-tag">SF 소설</span>
+</div>
+<h2 class="book-title">콘택트</h2>
+<p class="book-author">칼 세이건 (Carl Sagan)</p>
+<p class="book-desc"><span class="desc-line">외계 신호가 포착되자 과학과 종교, 정치가 서로 다른 해석을 내놓는다.</span><span class="desc-line">첫 접촉을 통해 인간 사회의 믿음과 권력을 묻는 소설.</span></p>
+</div>
+</div>
+<!-- ══ CARD 06: 우리가 빛의 속도로 갈 수 없다면 ══ -->
+<div class="card pick-card pl card-06">
+<div class="cover-zone">
+<img alt="우리가 빛의 속도로 갈 수 없다면 표지" class="book-cover-img" decoding="sync" loading="eager" src="../../assets/covers/2026-07-08/cannot-go-at-speed-of-light.png"/>
+</div>
+<div class="text-zone">
+<div class="meta-row">
+<span class="pick-num">Pick 05</span>
+<span class="meta-sep"></span>
+<span class="book-tag">SF 단편집</span>
+</div>
+<h2 class="book-title">우리가 빛의 속도로<br/>갈 수 없다면</h2>
+<p class="book-author">김초엽</p>
+<p class="book-desc"><span class="desc-line">과학기술의 미래를 배경으로 관계와 상실, 돌봄을 묻는 일곱 편의 SF.</span><span class="desc-line">낯선 세계를 통해 지금 여기의 인간을 돌아보게 한다.</span></p>
+</div>
+</div>
+<!-- ══ CARD 07: 창백한 푸른 점 ══ -->
+<div class="card pick-card pd card-07">
+<div class="cover-zone">
+<img alt="창백한 푸른 점 표지" class="book-cover-img" decoding="sync" loading="eager" src="../../assets/covers/2026-07-08/pale-blue-dot.png"/>
+</div>
+<div class="text-zone">
+<div class="meta-row">
+<span class="pick-num">Pick 06</span>
+<span class="meta-sep"></span>
+<span class="book-tag">과학 교양</span>
+</div>
+<h2 class="book-title">창백한<br/>푸른 점</h2>
+<p class="book-author">칼 세이건 (Carl Sagan)</p>
+<p class="book-desc"><span class="desc-line">보이저 1호가 포착한 지구 사진에서 출발해, 우주 속 인간의 위치를 묻고</span><span class="desc-line">지구에 대한 책임을 성찰한다.</span></p>
+</div>
+</div>
+<!-- ══ CARD 08: Remaining 14 books ══ -->
+<div class="card card-08">
+<div class="inner">
+<div class="hdr">
+<h2>이 책도 함께</h2>
+<span>전체 20권 중 나머지 14권</span>
+</div>
+<div class="grid">
+<div>
+<div class="sec-label">01 · 달과 우주 탐사</div>
+<ul class="sec-books">
+<li>나는 어쩌다 명왕성을 죽였나</li>
+<li>우주비행사의 지구생활 안내서</li>
+<li>아르테미스</li>
+</ul>
+</div>
+<div>
+<div class="sec-label">02 · 탄생·시간·블랙홀</div>
+<ul class="sec-books">
+<li>코스모스: 가능한 세계들</li>
+<li>짧고 쉽게 쓴 시간의 역사</li>
+<li>인터스텔라의 과학</li>
+</ul>
+</div>
+<div>
+<div class="sec-label">03 · 물리와 관측</div>
+<ul class="sec-books">
+<li>평행우주</li>
+<li>엘러건트 유니버스</li>
+<li>블랙홀 전쟁</li>
+<li>이명현의 별 헤는 밤</li>
+</ul>
+</div>
+<div>
+<div class="sec-label">04 · 외계생명·첫 접촉</div>
+<ul class="sec-books">
+<li>삼체 1</li>
+<li>2001 스페이스 오디세이</li>
+</ul>
+<div class="sec-label" style="margin-top:7%;">05 · 우주에서 지구를</div>
+<ul class="sec-books">
+<li>우주에서 가장 작은 빛</li>
+<li>마션</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- ══ CARD 09: Closing ══ -->
+<div class="card card-09">
+<div class="c">
+<span class="c-label">제주대학교 중앙도서관 이 달의 추천도서</span>
+<div class="gold-rule"></div>
+<h2 class="c-title">달을 읽는<br/>여름밤</h2>
+<div class="gold-rule"></div>
+<div class="access-box">
+<div class="access-item">
+<span class="a-badge">온라인</span>
+<span class="a-text">도서관 홈페이지에서 도서명을 검색해<br/>소장 위치와 대출 상태를 확인하세요.<br/><strong>lib.jejunu.ac.kr</strong></span>
+</div>
+<div class="access-item">
+<span class="a-badge">오프라인</span>
+<span class="a-text">중앙디지털도서관 2층 추천도서 서가에서<br/>책을 직접 만나보세요.<br/>2026. 07. 01 – 08. 31</span>
+</div>
+</div>
+<p class="c-footer">2026년 7–8월 · 20권 · 다섯 갈래의 우주 읽기</p>
+</div>
+</div>
+</div><!-- /track -->
+<button aria-label="이전 카드" class="nav-btn nav-prev" id="prevBtn" type="button">‹</button>
+<button aria-label="다음 카드" class="nav-btn nav-next" id="nextBtn" type="button">›</button>
+</div><!-- /viewer -->
+<div class="controls-bar">
+<div aria-live="polite" class="counter"><span id="curNum">1</span> / 9</div>
+<div class="dots-row" id="dotsRow"></div>
+<button class="auto-btn" id="autoBtn" type="button">▶ 자동</button>
+</div>
+<div class="download-row">
+<a class="download-link" href="../../">추천도서 홈</a>
+<a class="download-link" href="../../newsletter/2026-07-08/">뉴스레터 보기</a>
+<a class="download-link" download="" href="png/cardnews-2026-07-08.zip">게시용 PNG 9장 받기</a>
+<a class="download-link" download="" href="png/cardnews-montage.png">전체 미리보기</a>
+</div>
+<p class="credit">제주대학교 중앙도서관 · 2026</p>
+</div>
+<script>
+(function() {
+  if (new URLSearchParams(location.search).has('export')) {
+    document.documentElement.classList.add('export-mode');
+  }
+  const track   = document.getElementById('track');
+  const dotsRow = document.getElementById('dotsRow');
+  const curNum  = document.getElementById('curNum');
+  const autoBtn = document.getElementById('autoBtn');
+  const TOTAL   = 9;
+  let cur = 0, autoId = null;
+
+  for (let i = 0; i < TOTAL; i++) {
+    const d = document.createElement('button');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', (i + 1) + '번 카드');
+    d.addEventListener('click', () => goTo(i));
+    dotsRow.appendChild(d);
+  }
+
+  function goTo(n) {
+    cur = ((n % TOTAL) + TOTAL) % TOTAL;
+    track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+    curNum.textContent = cur + 1;
+    document.querySelectorAll('.dot').forEach((d, i) =>
+      d.classList.toggle('active', i === cur));
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', () => goTo(cur - 1));
+  document.getElementById('nextBtn').addEventListener('click', () => goTo(cur + 1));
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft')  goTo(cur - 1);
+    if (e.key === 'ArrowRight') goTo(cur + 1);
+  });
+
+  let startX = 0;
+  const viewer = document.getElementById('viewer');
+  viewer.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  viewer.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) goTo(cur + (dx > 0 ? -1 : 1));
+  }, { passive: true });
+
+  autoBtn.addEventListener('click', () => {
+    if (autoId) {
+      clearInterval(autoId); autoId = null;
+      autoBtn.textContent = '▶ 자동';
+      autoBtn.classList.remove('playing');
+    } else {
+      autoId = setInterval(() => goTo(cur + 1), 2800);
+      autoBtn.textContent = '■ 정지';
+      autoBtn.classList.add('playing');
+    }
+  });
+})();
+</script>
+</body>
+</html>
