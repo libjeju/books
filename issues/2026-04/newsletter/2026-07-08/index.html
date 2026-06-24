@@ -46,7 +46,7 @@ img{max-width:100%}
 .idx-num{font-family:"Noto Serif CJK KR","Noto Serif KR",serif;font-size:1.55rem;font-weight:700;color:rgba(255,255,255,.48);display:block;margin-bottom:5px;line-height:1}
 .idx-name{font-size:.78rem;font-weight:500;color:rgba(255,255,255,.86);line-height:1.5;letter-spacing:.01em}
 .books-wrap{padding:0 48px}.book-section{padding:48px 0;border-bottom:1px solid var(--border)}.book-section:last-child{border-bottom:none}
-.sec-head{display:flex;align-items:baseline;margin-bottom:26px}.sec-num-display{font-family:"Noto Serif CJK KR","Noto Serif KR",serif;font-size:5.25rem;font-weight:700;color:rgba(15,24,41,.08);line-height:.85;margin-right:-8px;flex-shrink:0;user-select:none}
+.sec-head{display:flex;align-items:baseline;margin-bottom:26px}.sec-num-display{font-family:"Noto Serif CJK KR","Noto Serif KR",serif;font-size:5.25rem;font-weight:700;color:rgba(15,24,41,.24);line-height:.85;margin-right:8px;flex-shrink:0;user-select:none}
 .sec-title-block{flex:1;padding-left:14px;border-left:3px solid var(--gold)}.sec-name{font-family:"Noto Serif CJK KR","Noto Serif KR",serif;font-size:1.35rem;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.35}.sec-question{font-size:.91rem;font-weight:400;color:var(--gray);font-style:italic;line-height:1.7}
 .sec-panel{background:var(--ivory);border-radius:5px;padding:14px 18px;margin:0 0 26px 72px;font-family:"Noto Serif CJK KR","Noto Serif KR",serif;font-size:.98rem;font-weight:500;color:var(--navy);line-height:1.8;font-style:italic}
 .book-entries{margin-left:72px}.book-entry{padding:20px 0;border-bottom:1px dotted var(--border);display:grid;grid-template-columns:66px minmax(0,1fr) auto;gap:16px;align-items:start}.book-entry:last-child{border-bottom:none}
@@ -89,26 +89,50 @@ img{max-width:100%}
 </div>
 <div class="mast-hero">
 <div class="mast-title-wrap">
-<span class="mast-kicker">7–8월 추천도서</span>
+
 <h1 class="mast-title">달을<br/>읽는<br/>여름밤</h1>
 <p class="mast-subtitle">우주·천문학·SF로 떠나는 지적 여행<br/>추천도서 20권 · 다섯 가지 주제로 만나는 우주</p>
 </div>
 <div class="mast-moon-wrap">
-<svg viewbox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+<svg aria-label="달 일러스트" role="img" viewbox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
 <defs>
-<radialgradient cx="36%" cy="30%" id="mg" r="60%">
-<stop offset="0%" stop-color="#FAF4E6"></stop>
-<stop offset="60%" stop-color="#F0E8D0"></stop>
-<stop offset="100%" stop-color="#C8BC9A"></stop>
+<radialgradient cx="36%" cy="30%" id="moonSurface" r="68%">
+<stop offset="0%" stop-color="#FFF8E9"></stop>
+<stop offset="42%" stop-color="#E9E0C8"></stop>
+<stop offset="78%" stop-color="#BFB49B"></stop>
+<stop offset="100%" stop-color="#8F846F"></stop>
 </radialgradient>
+<radialgradient cx="45%" cy="45%" id="craterSoft" r="60%">
+<stop offset="0%" stop-color="#8B806D" stop-opacity="0.34"></stop>
+<stop offset="58%" stop-color="#B8AC94" stop-opacity="0.20"></stop>
+<stop offset="100%" stop-color="#FFF7E8" stop-opacity="0.18"></stop>
+</radialgradient>
+<filter id="moonNoise" x="-20%" y="-20%" width="140%" height="140%">
+<feturbulence basefrequency="0.95" numoctaves="4" seed="14" type="fractalNoise"></feturbulence>
+<fecolormatrix type="saturate" values="0"></fecolormatrix>
+<fecomponenttransfer>
+<fefunca slope="0.16" type="linear"></fefunca>
+</fecomponenttransfer>
+<feblend in="SourceGraphic" mode="multiply"></feblend>
+</filter>
+<clippath id="moonClip"><circle cx="48" cy="48" r="30"></circle></clippath>
 </defs>
 <circle cx="48" cy="48" fill="none" r="46" stroke="#E5E1D8" stroke-width="0.8"></circle>
 <circle cx="48" cy="48" fill="none" r="38" stroke="#E5E1D8" stroke-dasharray="2 5" stroke-width="0.5"></circle>
-<circle cx="48" cy="48" fill="url(#mg)" r="30"></circle>
-<circle cx="38" cy="41" fill="rgba(180,165,140,0.3)" r="4"></circle>
-<circle cx="57" cy="37" fill="rgba(180,165,140,0.2)" r="3"></circle>
-<circle cx="53" cy="57" fill="rgba(180,165,140,0.22)" r="5"></circle>
-<circle cx="39" cy="56" fill="rgba(180,165,140,0.18)" r="2.5"></circle>
+<circle cx="48" cy="48" fill="url(#moonSurface)" filter="url(#moonNoise)" r="30"></circle>
+<g clip-path="url(#moonClip)" opacity="0.82">
+<path d="M21 44 C31 37, 40 35, 52 38 C64 41, 70 38, 77 32 L78 66 C65 62, 56 65, 43 61 C33 58, 28 61, 18 66 Z" fill="#8B806D" opacity="0.20"></path>
+<path d="M25 53 C36 47, 44 51, 53 49 C63 47, 69 50, 76 55" fill="none" opacity="0.22" stroke="#756C5C" stroke-width="1.2"></path>
+<circle cx="37" cy="39" fill="url(#craterSoft)" r="5.4"></circle>
+<circle cx="59" cy="36" fill="url(#craterSoft)" opacity="0.75" r="3.8"></circle>
+<circle cx="57" cy="58" fill="url(#craterSoft)" opacity="0.8" r="6.2"></circle>
+<circle cx="38" cy="57" fill="url(#craterSoft)" opacity="0.72" r="3.1"></circle>
+<circle cx="47" cy="27" fill="#736A5A" opacity="0.13" r="2.4"></circle>
+<circle cx="66" cy="49" fill="#736A5A" opacity="0.16" r="2.2"></circle>
+<circle cx="29" cy="48" fill="#FFF6E2" opacity="0.18" r="1.6"></circle>
+<circle cx="50" cy="43" fill="#FFF6E2" opacity="0.15" r="1.2"></circle>
+</g>
+<circle cx="48" cy="48" fill="none" r="30" stroke="rgba(255,255,255,0.36)" stroke-width="0.7"></circle>
 <circle cx="48" cy="2" fill="#B8843A" opacity="0.7" r="2"></circle>
 <circle cx="94" cy="48" fill="#B8843A" opacity="0.5" r="1.5"></circle>
 </svg>
