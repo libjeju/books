@@ -3,47 +3,198 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>2026년 4번째 추천도서 포스터 자료</title>
+  <meta name="description" content="제주대학교 중앙도서관 2026년 4번째 추천도서 포스터 다운로드">
+  <title>2026년 4번째 추천도서 포스터 | 제주대학교 중앙도서관</title>
   <style>
-    body{margin:0;background:#F2F0EB;color:#0F1829;font-family:"Noto Sans CJK KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.7}
-    main{max-width:860px;margin:0 auto;padding:48px 20px 80px}
-    h1{font-size:36px;line-height:1.2;margin:0 0 14px;letter-spacing:-.04em}
-    .lead{color:#5B6472;margin:0 0 28px}
-    .box{background:#fff;border:1px solid #DED9CF;border-radius:16px;padding:22px;margin:18px 0}
-    h2{font-size:22px;margin:0 0 12px}
-    ul{margin:0;padding-left:22px}
-    a{color:#0F1829;font-weight:700}
-    .small{font-size:14px;color:#5B6472}
-    .nav{margin-bottom:28px}
+    :root{
+      --navy:#0F1829;
+      --ivory:#F5F0E8;
+      --gold:#9A6828;
+      --gold-dark:#76501F;
+      --gray:#5B6472;
+      --line:#DED9CF;
+      --bg:#F2F0EB;
+      --white:#FFFFFF;
+    }
+    *{box-sizing:border-box}
+    html{background:var(--bg);color-scheme:light only}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--navy);
+      font-family:"Noto Sans CJK KR","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+      line-height:1.65;
+      word-break:keep-all;
+    }
+    a{color:inherit}
+    main{max-width:1040px;margin:0 auto;padding:48px 20px 80px}
+    .nav{margin-bottom:30px}
+    .nav a{color:var(--gray);text-decoration:none;font-size:14px}
+    .nav a:hover{text-decoration:underline}
+    .eyebrow{margin:0 0 10px;color:var(--gold-dark);font-size:13px;font-weight:800;letter-spacing:.12em}
+    h1{
+      margin:0;
+      font-family:"Noto Serif CJK KR","Noto Serif KR","Batang",serif;
+      font-size:clamp(34px,6vw,54px);
+      line-height:1.15;
+      letter-spacing:-.045em;
+    }
+    .lead{max-width:720px;margin:18px 0 0;color:var(--gray);font-size:16px}
+    .notice{
+      margin:30px 0;
+      padding:16px 18px;
+      border-left:4px solid var(--gold);
+      background:var(--ivory);
+      color:#3F4856;
+      border-radius:0 8px 8px 0;
+      font-size:14px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:24px;
+      margin-top:30px;
+    }
+    .card{
+      background:var(--white);
+      border:1px solid var(--line);
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 10px 32px rgba(15,24,41,.07);
+    }
+    .preview{
+      display:block;
+      background:#111722;
+      aspect-ratio:2/3;
+      overflow:hidden;
+    }
+    .preview img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+    .content{padding:22px}
+    h2{
+      margin:0 0 7px;
+      font-family:"Noto Serif CJK KR","Noto Serif KR","Batang",serif;
+      font-size:24px;
+      letter-spacing:-.035em;
+    }
+    .meta{margin:0 0 17px;color:var(--gray);font-size:13px}
+    .buttons{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{
+      min-height:46px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:11px 16px;
+      border-radius:7px;
+      text-decoration:none;
+      font-size:14px;
+      font-weight:800;
+    }
+    .primary{background:var(--navy);color:var(--ivory)}
+    .primary:hover{background:#263754}
+    .secondary{border:1px solid var(--line);background:#fff;color:var(--navy)}
+    .secondary:hover{background:#F7F5F0}
+    .guide{
+      margin-top:34px;
+      padding:24px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:14px;
+    }
+    .guide h2{font-size:20px}
+    .guide ul{margin:10px 0 0;padding-left:22px;color:var(--gray)}
+    .guide code{
+      padding:2px 5px;
+      background:#F1EFE9;
+      border-radius:4px;
+      color:#273347;
+      word-break:break-all;
+    }
+    footer{
+      margin-top:38px;
+      padding-top:20px;
+      border-top:1px solid var(--line);
+      color:var(--gray);
+      font-size:13px;
+    }
+    @media(max-width:700px){
+      main{padding:32px 16px 56px}
+      .grid{grid-template-columns:1fr}
+      .content{padding:18px}
+      .buttons{display:grid;grid-template-columns:1fr 1fr}
+      .btn{width:100%}
+    }
   </style>
 </head>
 <body>
 <main>
   <div class="nav"><a href="../">← 2026년 4번째 추천도서 홈</a></div>
+
+  <p class="eyebrow">POSTER DOWNLOAD</p>
   <h1>포스터 자료 다운로드</h1>
-  <p class="lead">관리자가 포스터 이미지나 인쇄용 파일을 올려두고 필요할 때 다운로드해 사용할 수 있는 공간입니다.</p>
+  <p class="lead">
+    「달을 읽는 여름밤」 포스터를 미리 보거나 PNG 원본 파일로 내려받을 수 있습니다.
+  </p>
 
-  <section class="box">
-    <h2>인쇄용 파일</h2>
+  <div class="notice">
+    현재 등록된 파일은 1024×1536px PNG입니다. 웹 게시와 소형 출력에 적합하며,
+    고품질 A3·A4 인쇄용 PDF는 추후 별도로 추가할 수 있습니다.
+  </div>
+
+  <section class="grid" aria-label="포스터 파일 목록">
+    <article class="card">
+      <a class="preview" href="./print/poster-2026-04-web-main_v1.png" target="_blank" rel="noopener">
+        <img src="./print/poster-2026-04-web-main_v1.png"
+             alt="달 표면을 바라보는 여성이 있는 달을 읽는 여름밤 포스터 1안">
+      </a>
+      <div class="content">
+        <h2>포스터 1안</h2>
+        <p class="meta">PNG · 1024×1536px · 약 1.37MB</p>
+        <div class="buttons">
+          <a class="btn secondary"
+             href="./print/poster-2026-04-web-main_v1.png"
+             target="_blank" rel="noopener">크게 보기</a>
+          <a class="btn primary"
+             href="./print/poster-2026-04-web-main_v1.png"
+             download="jnu-recommended-books-2026-04-poster-v1.png">PNG 다운로드</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="preview" href="./print/poster-2026-04-web-main_v2.png" target="_blank" rel="noopener">
+        <img src="./print/poster-2026-04-web-main_v2.png"
+             alt="달빛 궤도 안에서 책을 읽는 여성이 있는 달을 읽는 여름밤 포스터 2안">
+      </a>
+      <div class="content">
+        <h2>포스터 2안</h2>
+        <p class="meta">PNG · 1024×1536px · 약 1.25MB</p>
+        <div class="buttons">
+          <a class="btn secondary"
+             href="./print/poster-2026-04-web-main_v2.png"
+             target="_blank" rel="noopener">크게 보기</a>
+          <a class="btn primary"
+             href="./print/poster-2026-04-web-main_v2.png"
+             download="jnu-recommended-books-2026-04-poster-v2.png">PNG 다운로드</a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section class="guide">
+    <h2>폴더 운영 기준</h2>
     <ul>
-      <li><a href="./print/poster-a4.pdf">poster-a4.pdf</a> <span class="small">— 업로드 후 사용</span></li>
-      <li><a href="./print/poster-a4.png">poster-a4.png</a> <span class="small">— 업로드 후 사용</span></li>
-      <li><a href="./print/poster-a3.pdf">poster-a3.pdf</a> <span class="small">— 업로드 후 사용</span></li>
+      <li><code>print/</code>: 고해상도 PNG와 인쇄용 PDF</li>
+      <li><code>web/</code>: 홈페이지·게시판·SNS용 JPG·PNG·WebP</li>
+      <li><code>source/</code>: 외부 공개가 가능한 편집 원본</li>
     </ul>
   </section>
 
-  <section class="box">
-    <h2>웹 게시용 이미지</h2>
-    <ul>
-      <li><a href="./web/poster-web.jpg">poster-web.jpg</a> <span class="small">— 업로드 후 사용</span></li>
-      <li><a href="./web/poster-square.png">poster-square.png</a> <span class="small">— 업로드 후 사용</span></li>
-    </ul>
-  </section>
-
-  <section class="box">
-    <h2>권장 사용법</h2>
-    <p class="small">아직 포스터 파일을 올리지 않은 상태에서는 위 링크가 열리지 않을 수 있습니다. 포스터 파일을 같은 이름으로 업로드하면 주소를 바꾸지 않고 계속 사용할 수 있습니다.</p>
-  </section>
+  <footer>© 2026 제주대학교 중앙도서관</footer>
 </main>
 </body>
 </html>
