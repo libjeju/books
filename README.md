@@ -23,13 +23,20 @@ https://libjeju.github.io/books/
 ### 현재 등록된 회차
 
 ```text
+2026년 5번째 추천도서 (최신)
+주제: 텍스트에서 스크린으로 — 시간을 건너온 영원의 질문
+기간: 2026년 9–10월
+폴더명: issues/2026-05
+
 2026년 4번째 추천도서
+주제: 달을 읽는 여름밤
+기간: 2026년 7–8월
 폴더명: issues/2026-04
 ```
 
 ---
 
-## 2. 현재 회차 주요 주소
+## 2. 회차별 주요 주소
 
 ### 전체 추천도서 아카이브 홈
 
@@ -37,34 +44,25 @@ https://libjeju.github.io/books/
 https://libjeju.github.io/books/
 ```
 
-### 2026년 4번째 추천도서 회차 홈
+### 2026년 5번째 추천도서 (2026년 9–10월)
 
 ```text
-https://libjeju.github.io/books/issues/2026-04/
+회차 홈        https://libjeju.github.io/books/issues/2026-05/
+뉴스레터        https://libjeju.github.io/books/issues/2026-05/newsletter/2026-09-10/
+카드뉴스        https://libjeju.github.io/books/issues/2026-05/cardnews/2026-09-10/
+이메일 발송용    https://libjeju.github.io/books/issues/2026-05/email/2026-09-10/
+포스터 자료      https://libjeju.github.io/books/issues/2026-05/posters/
+포스터 이미지    https://libjeju.github.io/books/issues/2026-05/posters/web/poster-2026-05-web-main.png
 ```
 
-### 뉴스레터
+### 2026년 4번째 추천도서 (2026년 7–8월)
 
 ```text
-https://libjeju.github.io/books/issues/2026-04/newsletter/2026-07-08/
-```
-
-### 카드뉴스
-
-```text
-https://libjeju.github.io/books/issues/2026-04/cardnews/2026-07-08/
-```
-
-### 이메일 발송용 페이지
-
-```text
-https://libjeju.github.io/books/issues/2026-04/email/2026-07-08/
-```
-
-### 포스터 자료 페이지
-
-```text
-https://libjeju.github.io/books/issues/2026-04/posters/
+회차 홈        https://libjeju.github.io/books/issues/2026-04/
+뉴스레터        https://libjeju.github.io/books/issues/2026-04/newsletter/2026-07-08/
+카드뉴스        https://libjeju.github.io/books/issues/2026-04/cardnews/2026-07-08/
+이메일 발송용    https://libjeju.github.io/books/issues/2026-04/email/2026-07-08/
+포스터 자료      https://libjeju.github.io/books/issues/2026-04/posters/
 ```
 
 ---
@@ -96,26 +94,39 @@ books
 ├─ index.html
 ├─ README.md
 ├─ 404.html
-├─ .nojekyll
 └─ issues
-   └─ 2026-04
+   ├─ 2026-04
+   │  └─ (2026년 7–8월 자료)
+   └─ 2026-05
       ├─ index.html
       ├─ README.md
+      ├─ 404.html
+      ├─ 00_시작하기.txt
+      ├─ ISSUE_STRUCTURE.md
+      ├─ PUBLISHING_GUIDE.md
+      ├─ RIGHTS_AND_PRIVACY.md
+      ├─ CARDNEWS_CHANGELOG.md
       ├─ newsletter
-      │  └─ 2026-07-08
+      │  └─ 2026-09-10
       │     └─ index.html
       ├─ cardnews
-      │  └─ 2026-07-08
+      │  └─ 2026-09-10
       │     ├─ index.html
-      │     └─ png
+      │     ├─ README.md
+      │     └─ png            (카드 9장, 미리보기, ZIP)
       ├─ email
-      │  └─ 2026-07-08
-      │     └─ index.html
+      │  └─ 2026-09-10
+      │     ├─ index.html
+      │     └─ 메일제목.txt
       ├─ assets
       │  └─ covers
-      │     └─ 2026-07-08
+      │     └─ 2026-09-10     (표지 15종)
       ├─ posters
-      └─ tools
+      │  ├─ index.html
+      │  ├─ web               (poster-2026-05-web-main.png)
+      │  ├─ print
+      │  └─ source
+      └─ tools                (check_links.py, export_cardnews.py, serve_local.py)
 ```
 
 ---
@@ -307,11 +318,19 @@ https://github.com/libjeju/books
 
 ### 2단계. 파일 업로드 화면 열기
 
-저장소 화면에서 다음 순서로 클릭합니다.
+저장소 화면 오른쪽 위, 초록색 `Code` 버튼 왼쪽의 `+` 버튼을 누르고 `Upload files`를 선택합니다.
 
 ```text
-Add file → Upload files
++ → Upload files
 ```
+
+아래 주소를 직접 입력해도 같은 화면이 열립니다.
+
+```text
+https://github.com/libjeju/books/upload/main
+```
+
+(예전 화면에서는 `Add file → Upload files` 였습니다.)
 
 ---
 
@@ -882,11 +901,11 @@ posters/source
 
 ## 23. 현재 회차 운영 완료 체크리스트
 
-2026년 4번째 추천도서는 다음 항목이 정상 작동하면 운영 준비가 완료된 것입니다.
+2026년 5번째 추천도서는 다음 항목이 정상 작동하면 운영 준비가 완료된 것입니다.
 
 ```text
 □ 전체 아카이브 홈 접속 가능
-□ 2026년 4번째 추천도서 회차 홈 접속 가능
+□ 2026년 5번째 추천도서 회차 홈 접속 가능
 □ 뉴스레터 페이지 접속 가능
 □ 카드뉴스 페이지 접속 가능
 □ 이메일 발송용 페이지 접속 가능
@@ -894,6 +913,8 @@ posters/source
 □ PC에서 정상 표시
 □ 스마트폰에서 정상 표시
 □ 다른 사람 PC에서도 정상 접속 가능
+□ 표지 이미지 이용 조건 확인 완료
+□ 전시 기간·장소 표기 확인 완료
 □ 이메일 테스트 발송 완료
 ```
 
