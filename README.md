@@ -44,6 +44,12 @@ https://libjeju.github.io/books/
 https://libjeju.github.io/books/
 ```
 
+### 회차 전체 목록 (표지·도서 목록 한눈에 보기)
+
+```text
+https://libjeju.github.io/books/issues/
+```
+
 ### 2026년 5번째 추천도서 (2026년 9–10월)
 
 ```text
@@ -150,6 +156,8 @@ https://libjeju.github.io/books/
 ### `issues`
 
 추천도서 회차별 자료가 들어가는 폴더입니다.
+
+이 폴더의 `index.html`은 회차 목록 페이지입니다. 회차마다 어떤 책을 추천했는지 표지와 함께 볼 수 있고, 주제별 전체 목록도 펼쳐 볼 수 있습니다. 새 회차를 추가하면 이 파일에도 회차 카드를 추가합니다.
 
 예시:
 

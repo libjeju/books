@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>추천도서 회차 목록 | 제주대학교 중앙도서관</title>
+<meta name="description" content="제주대학교 중앙도서관 추천도서 회차별 목록 — 회차마다 어떤 책을 추천했는지 표지와 함께 볼 수 있습니다.">
+<meta name="theme-color" content="#0F1829">
+<style>
+:root{--navy:#0F1829;--ivory:#F5F0E8;--gold:#A2472D;--gold-soft:#C9714F;--gray:#5B6472;--line:#DED9CF;--bg:#F2F0EB;--white:#fff}
+*{box-sizing:border-box}
+html{background:var(--bg);color-scheme:light only}
+body{margin:0;background:var(--bg);color:var(--navy);font-family:"Noto Sans CJK KR","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.7;word-break:keep-all}
+a{color:inherit}
+.shell{max-width:1040px;margin:0 auto;padding:40px 20px 80px}
+.crumb{font-size:13px;color:var(--gray);margin-bottom:26px}
+.crumb a{text-decoration:none}.crumb a:hover{text-decoration:underline}
+header.top{padding-bottom:26px;border-bottom:2px solid var(--navy)}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:.12em;color:var(--gold)}
+h1{font-family:"Noto Serif CJK KR","Noto Serif KR",serif;font-size:clamp(30px,5vw,46px);line-height:1.16;letter-spacing:-.04em;margin:10px 0 14px}
+.lead{margin:0;color:var(--gray);max-width:720px}
+.count-strip{display:flex;gap:26px;flex-wrap:wrap;margin-top:22px;font-size:14px;color:var(--gray)}
+.count-strip b{color:var(--navy)}
+.issue{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:28px;margin-top:28px;box-shadow:0 12px 34px rgba(15,24,41,.06)}
+.issue-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:start;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.badge{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.06em;color:var(--gold);background:#F9E8DF;border:1px solid #E8B9A2;border-radius:999px;padding:3px 10px}
+.badge.latest{background:var(--navy);color:#fff;border-color:var(--navy)}
+h2{font-family:"Noto Serif CJK KR","Noto Serif KR",serif;font-size:clamp(23px,3.4vw,30px);margin:12px 0 6px;letter-spacing:-.03em}
+.sub{margin:0;color:var(--gray);font-size:15px}
+.meta{margin:10px 0 0;font-size:13.5px;color:var(--gray)}
+.meta span+span::before{content:" · "}
+.blurb{margin:16px 0 0;color:#46505F;font-size:15px;max-width:760px}
+.links{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:9px 15px;border:1px solid var(--navy);border-radius:999px;background:#fff;color:var(--navy);font-size:14px;font-weight:700;text-decoration:none}
+.btn.primary{background:var(--navy);color:#fff}
+.btn:hover{background:var(--ivory)}.btn.primary:hover{background:#233454}
+.shelf-label{margin:24px 0 12px;font-size:13px;font-weight:800;letter-spacing:.1em;color:var(--gold)}
+.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:16px 14px}
+.bk{text-decoration:none;display:block}
+.bk img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:3px;background:var(--ivory);box-shadow:0 4px 14px rgba(15,24,41,.16);display:block;transition:transform .18s}
+.bk:hover img{transform:translateY(-3px)}
+.bk b{display:block;margin-top:7px;font-size:12.5px;font-weight:700;line-height:1.35}
+.bk span{display:block;font-size:11.5px;color:var(--gray);line-height:1.35}
+details{margin-top:22px;border-top:1px dotted var(--line);padding-top:14px}
+summary{cursor:pointer;font-size:14px;font-weight:700;color:var(--navy);list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"＋ ";color:var(--gold);font-weight:800}
+details[open] summary::before{content:"－ "}
+.sec{margin-top:18px}
+.sec h3{font-family:"Noto Serif CJK KR","Noto Serif KR",serif;font-size:15.5px;margin:0 0 8px;padding-left:10px;border-left:3px solid var(--gold)}
+.sec ul{list-style:none;margin:0;padding:0 0 0 13px}
+.sec li{font-size:14px;padding:3px 0;color:#46505F}
+.sec li b{color:var(--navy);font-weight:700}
+.sec li em{font-style:normal;color:var(--gray);font-size:12.5px}
+.sec li i{font-style:normal;color:var(--gold);font-size:12.5px}
+footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);color:var(--gray);font-size:13px}
+@media(max-width:700px){
+  .shell{padding:26px 16px 60px}
+  .issue{padding:20px}
+  .issue-head{grid-template-columns:1fr}
+  .shelf{grid-template-columns:repeat(auto-fill,minmax(72px,1fr));gap:14px 10px}
+  .btn{flex:1 1 calc(50% - 8px)}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="crumb"><a href="../">← 추천도서 아카이브 홈</a></nav>
+  <header class="top">
+    <div class="eyebrow">ISSUE ARCHIVE</div>
+    <h1>추천도서 회차 목록</h1>
+    <p class="lead">제주대학교 중앙도서관이 격월로 선정한 추천도서를 회차별로 모았습니다. 표지를 훑어보고, 주제별 전체 목록도 펼쳐 볼 수 있습니다.</p>
+    <div class="count-strip">
+      <div>등록 회차 <b>2회</b></div>
+      <div>누적 추천도서 <b>35권</b></div>
+      <div>최신 회차 <b>2026년 9–10월</b></div>
+    </div>
+  </header>
+  <main>
+    <article class="issue">
+  <div class="issue-head">
+    <div>
+      <span class="badge latest">2026년 5번째 추천도서 · 최신</span>
+      <h2>텍스트에서 스크린으로</h2>
+      <p class="sub">시간을 건너온 영원의 질문</p>
+      <p class="meta"><span>2026년 9–10월</span><span>고전 15편 · 26권</span><span>5개 주제</span></p>
+    </div>
+  </div>
+  <p class="blurb">영화로 다시 태어난 고전 열다섯 편. 책과 영화를 나란히 두고 ‘내가 주인공이었다면 어떤 선택을 했을까’를 묻습니다.</p>
+  <div class="links">
+    <a class="btn primary" href="./2026-05/">회차 홈</a>
+    <a class="btn" href="./2026-05/newsletter/2026-09-10/">뉴스레터</a>
+    <a class="btn" href="./2026-05/cardnews/2026-09-10/">카드뉴스</a>
+    <a class="btn" href="./2026-05/email/2026-09-10/">메일용</a>
+    <a class="btn" href="./2026-05/posters/">포스터</a>
+  </div>
+  <div class="shelf-label">이 회차의 책 15권</div>
+  <div class="shelf"><a class="bk" href="./2026-05/newsletter/2026-09-10/" title="일리아스 · 호메로스"><img src="./2026-05/assets/covers/2026-09-10/iliad.png" alt="일리아스 표지" loading="lazy" decoding="async"><b>일리아스</b><span>호메로스</span></a><a class="bk" href="./2026-05/newsletter/2026-09-10/" title="오뒷세이아 · 호메로스"><img src="./2026-05/assets/covers/2026-09-10/odyssey.png" alt="오뒷세이아 표지" loading="lazy" decoding="async"><b>오뒷세이아</b><span>호메로스</span></a><a class="bk" href="./2026-05/newsletter/2026-09-10/" title="서부 전선 이상 없다 · 에리히 마리아 레마르크"><img src="./2026-05/assets/covers/2026-09-10/all-quiet.png" alt="서부 전선 이상 없다 표지" loading="lazy" decoding="async"><b>서부 전선 이상 없다</b><span>에리히 마리아 레마르크</span></a><a class="bk" href="./2026-05/newsletter/2026-09-10/" title="프랑켄슈타인 · 메리 셸리"><img src="./2026-05/assets/covers/2026-09-10/frankenstein.png" alt="프랑켄슈타인 표지" loading="lazy" decoding="async"><b>프랑켄슈타인</b><span>메리 셸리</span></a><a class="bk" href="./2026-05/newsletter/2026-09-10/" title="인간 실격 · 다자이 오사무"><img src="./2026-05/assets/covers/2026-09-10/no-longer-human.png" alt="인간 실격 표지" loading="lazy" decoding="async"><b>인간 실격</b><span>다자이 오사무</span></a><a class="bk" href="./2026-05/newsletter/2026-09-10/" title="나생문 · 아쿠타가와 류노스케"><img src="./2026-05/assets/covers/2026-09-10/rashomon.png" alt="나생문 표지" loading="lazy" decoding="async"><b>나생문</b><span>아쿠타가와 류노스케</span></a><a class="bk" href="./2026-05/newsletter/2026-09-10/" title="오만과 편견 · 제인 오스틴"><img src="./2026-05/assets/covers/2026-09-10/pride-and-prejudice.png" alt="오만과 편견 표지" loading="lazy" decoding="async"><b>오만과 편견</b><span>제인 오스틴</span></a><a class="bk" href="./2026-05/newsletter/2026-09-10/" title="작은 아씨들 · 루이자 메이 올컷"><img src="./2026-05/assets/covers/2026-09-10/little-women.png" alt="작은 아씨들 표지" loading="lazy" decoding="async"><b>작은 아씨들</b><span>루이자 메이 올컷</span></a><a class="bk" href="./2026-05/newsletter/2026-09-10/" title="서편제 · 이청준"><img src="./2026-05/assets/covers/2026-09-10/seopyeonje.png" alt="서편제 표지" loading="lazy" decoding="async"><b>서편제</b><span>이청준</span></a><a class="bk" href="./2026-05/newsletter/2026-09-10/" title="모비 딕 · 허먼 멜빌"><img src="./2026-05/assets/covers/2026-09-10/moby-dick.png" alt="모비 딕 표지" loading="lazy" decoding="async"><b>모비 딕</b><span>허먼 멜빌</span></a><a class="bk" href="./2026-05/newsletter/2026-09-10/" title="장미의 이름 · 움베르토 에코"><img src="./2026-05/assets/covers/2026-09-10/name-of-the-rose.png" alt="장미의 이름 표지" loading="lazy" decoding="async"><b>장미의 이름</b><span>움베르토 에코</span></a><a class="bk" href="./2026-05/newsletter/2026-09-10/" title="듄 · 프랭크 허버트"><img src="./2026-05/assets/covers/2026-09-10/dune.png" alt="듄 표지" loading="lazy" decoding="async"><b>듄</b><span>프랭크 허버트</span></a><a class="bk" href="./2026-05/newsletter/2026-09-10/" title="레 미제라블 · 빅토르 위고"><img src="./2026-05/assets/covers/2026-09-10/les-miserables.png" alt="레 미제라블 표지" loading="lazy" decoding="async"><b>레 미제라블</b><span>빅토르 위고</span></a><a class="bk" href="./2026-05/newsletter/2026-09-10/" title="난장이가 쏘아올린 작은 공 · 조세희"><img src="./2026-05/assets/covers/2026-09-10/dwarf.png" alt="난장이가 쏘아올린 작은 공 표지" loading="lazy" decoding="async"><b>난장이가 쏘아올린 작은 공</b><span>조세희</span></a><a class="bk" href="./2026-05/newsletter/2026-09-10/" title="인생 · 위화"><img src="./2026-05/assets/covers/2026-09-10/to-live.png" alt="인생 표지" loading="lazy" decoding="async"><b>인생</b><span>위화</span></a></div>
+  <details>
+    <summary>주제별 전체 목록 보기</summary>
+    <div class="sec"><h3>01 · 전쟁, 그리고 집으로 가는 길</h3><ul><li><b>일리아스</b> <em>호메로스</em> <i>영화 〈트로이〉 2004 · 볼프강 페터젠</i></li><li><b>오뒷세이아</b> <em>호메로스</em> <i>영화 〈오디세이〉 2026 · 크리스토퍼 놀란</i></li><li><b>서부 전선 이상 없다</b> <em>에리히 마리아 레마르크</em> <i>영화 〈서부 전선 이상 없다〉 1930 · 2022</i></li></ul></div><div class="sec"><h3>02 · 괴물과 인간, 그 경계에서</h3><ul><li><b>프랑켄슈타인</b> <em>메리 셸리</em> <i>영화 〈프랑켄슈타인〉 2025 · 기예르모 델 토로</i></li><li><b>인간 실격</b> <em>다자이 오사무</em> <i>영화 〈인간 실격〉 2010 · 아라토 겐지로</i></li><li><b>나생문</b> <em>아쿠타가와 류노스케</em> <i>영화 〈라쇼몽〉 1950 · 구로사와 아키라</i></li></ul></div><div class="sec"><h3>03 · 사랑과 가족, 나의 자리</h3><ul><li><b>오만과 편견</b> <em>제인 오스틴</em> <i>영화 〈오만과 편견〉 2005 · 조 라이트</i></li><li><b>작은 아씨들</b> <em>루이자 메이 올컷</em> <i>영화 〈작은 아씨들〉 2019 · 그레타 거윅</i></li><li><b>서편제</b> <em>이청준</em> <i>영화 〈서편제〉 1993 · 임권택</i></li></ul></div><div class="sec"><h3>04 · 집착과 권력, 거대한 세계</h3><ul><li><b>모비 딕</b> <em>허먼 멜빌</em> <i>영화 〈모비 딕〉 1956 · 존 휴스턴</i></li><li><b>장미의 이름</b> <em>움베르토 에코</em> <i>영화 〈장미의 이름〉 1986 · 장자크 아노</i></li><li><b>듄</b> <em>프랭크 허버트</em> <i>영화 〈듄〉 2021 · 〈듄: 파트 2〉 2024 · 드니 빌뇌브</i></li></ul></div><div class="sec"><h3>05 · 시대를 견디는 사람들</h3><ul><li><b>레 미제라블</b> <em>빅토르 위고</em> <i>영화 〈레 미제라블〉 2012 · 톰 후퍼</i></li><li><b>난장이가 쏘아올린 작은 공</b> <em>조세희</em> <i>영화 〈난장이가 쏘아올린 작은 공〉 1981 · 이원세</i></li><li><b>인생</b> <em>위화</em> <i>영화 〈인생〉 1994 · 장이머우</i></li></ul></div>
+  </details>
+</article><article class="issue">
+  <div class="issue-head">
+    <div>
+      <span class="badge">2026년 4번째 추천도서</span>
+      <h2>달을 읽는 여름밤</h2>
+      <p class="sub">우주·천문학·SF로 떠나는 지적 여행</p>
+      <p class="meta"><span>2026년 7–8월</span><span>추천도서 20권</span><span>5개 주제</span></p>
+    </div>
+  </div>
+  <p class="blurb">달에서 출발해 우주의 기원과 블랙홀, 외계 문명을 지나 다시 작고 푸른 지구로 돌아오는 독서 여행입니다.</p>
+  <div class="links">
+    <a class="btn primary" href="./2026-04/">회차 홈</a>
+    <a class="btn" href="./2026-04/newsletter/2026-07-08/">뉴스레터</a>
+    <a class="btn" href="./2026-04/cardnews/2026-07-08/">카드뉴스</a>
+    <a class="btn" href="./2026-04/email/2026-07-08/">메일용</a>
+    <a class="btn" href="./2026-04/posters/">포스터</a>
+  </div>
+  <div class="shelf-label">이 회차의 책 20권</div>
+  <div class="shelf"><a class="bk" href="./2026-04/newsletter/2026-07-08/" title="천문학자는 별을 보지 않는다 · 심채경"><img src="./2026-04/assets/covers/2026-07-08/astronomer.png" alt="천문학자는 별을 보지 않는다 표지" loading="lazy" decoding="async"><b>천문학자는 별을 보지 않는다</b><span>심채경</span></a><a class="bk" href="./2026-04/newsletter/2026-07-08/" title="나는 어쩌다 명왕성을 죽였나 · 마이크 브라운"><img src="./2026-04/assets/covers/2026-07-08/pluto.png" alt="나는 어쩌다 명왕성을 죽였나 표지" loading="lazy" decoding="async"><b>나는 어쩌다 명왕성을 죽였나</b><span>마이크 브라운</span></a><a class="bk" href="./2026-04/newsletter/2026-07-08/" title="우주비행사의 지구생활 안내서 · 크리스 해드필드"><img src="./2026-04/assets/covers/2026-07-08/astronaut-guide.png" alt="우주비행사의 지구생활 안내서 표지" loading="lazy" decoding="async"><b>우주비행사의 지구생활 안내서</b><span>크리스 해드필드</span></a><a class="bk" href="./2026-04/newsletter/2026-07-08/" title="아르테미스 · 앤디 위어"><img src="./2026-04/assets/covers/2026-07-08/artemis.png" alt="아르테미스 표지" loading="lazy" decoding="async"><b>아르테미스</b><span>앤디 위어</span></a><a class="bk" href="./2026-04/newsletter/2026-07-08/" title="코스모스 · 칼 세이건"><img src="./2026-04/assets/covers/2026-07-08/cosmos.png" alt="코스모스 표지" loading="lazy" decoding="async"><b>코스모스</b><span>칼 세이건</span></a><a class="bk" href="./2026-04/newsletter/2026-07-08/" title="코스모스: 가능한 세계들 · 앤 드루얀"><img src="./2026-04/assets/covers/2026-07-08/cosmos-possible-worlds.png" alt="코스모스: 가능한 세계들 표지" loading="lazy" decoding="async"><b>코스모스: 가능한 세계들</b><span>앤 드루얀</span></a><a class="bk" href="./2026-04/newsletter/2026-07-08/" title="짧고 쉽게 쓴 시간의 역사 · 스티븐 호킹·레오나르드 믈로디노프"><img src="./2026-04/assets/covers/2026-07-08/briefer-history-of-time.png" alt="짧고 쉽게 쓴 시간의 역사 표지" loading="lazy" decoding="async"><b>짧고 쉽게 쓴 시간의 역사</b><span>스티븐 호킹·레오나르드 믈로디노프</span></a><a class="bk" href="./2026-04/newsletter/2026-07-08/" title="인터스텔라의 과학 · 킵 손"><img src="./2026-04/assets/covers/2026-07-08/science-of-interstellar.png" alt="인터스텔라의 과학 표지" loading="lazy" decoding="async"><b>인터스텔라의 과학</b><span>킵 손</span></a><a class="bk" href="./2026-04/newsletter/2026-07-08/" title="평행우주 · 미치오 카쿠"><img src="./2026-04/assets/covers/2026-07-08/parallel-worlds.png" alt="평행우주 표지" loading="lazy" decoding="async"><b>평행우주</b><span>미치오 카쿠</span></a><a class="bk" href="./2026-04/newsletter/2026-07-08/" title="엘러건트 유니버스 · 브라이언 그린"><img src="./2026-04/assets/covers/2026-07-08/elegant-universe.png" alt="엘러건트 유니버스 표지" loading="lazy" decoding="async"><b>엘러건트 유니버스</b><span>브라이언 그린</span></a><a class="bk" href="./2026-04/newsletter/2026-07-08/" title="블랙홀 전쟁 · 레너드 서스킨드"><img src="./2026-04/assets/covers/2026-07-08/black-hole-war.png" alt="블랙홀 전쟁 표지" loading="lazy" decoding="async"><b>블랙홀 전쟁</b><span>레너드 서스킨드</span></a><a class="bk" href="./2026-04/newsletter/2026-07-08/" title="이명현의 별 헤는 밤 · 이명현"><img src="./2026-04/assets/covers/2026-07-08/starry-night.png" alt="이명현의 별 헤는 밤 표지" loading="lazy" decoding="async"><b>이명현의 별 헤는 밤</b><span>이명현</span></a><a class="bk" href="./2026-04/newsletter/2026-07-08/" title="프로젝트 헤일메리 · 앤디 위어"><img src="./2026-04/assets/covers/2026-07-08/project-hail-mary.png" alt="프로젝트 헤일메리 표지" loading="lazy" decoding="async"><b>프로젝트 헤일메리</b><span>앤디 위어</span></a><a class="bk" href="./2026-04/newsletter/2026-07-08/" title="콘택트 · 칼 세이건"><img src="./2026-04/assets/covers/2026-07-08/contact.png" alt="콘택트 표지" loading="lazy" decoding="async"><b>콘택트</b><span>칼 세이건</span></a><a class="bk" href="./2026-04/newsletter/2026-07-08/" title="삼체 1 · 류츠신"><img src="./2026-04/assets/covers/2026-07-08/three-body-1.png" alt="삼체 1 표지" loading="lazy" decoding="async"><b>삼체 1</b><span>류츠신</span></a><a class="bk" href="./2026-04/newsletter/2026-07-08/" title="2001 스페이스 오디세이 · 아서 C. 클라크"><img src="./2026-04/assets/covers/2026-07-08/2001-space-odyssey.png" alt="2001 스페이스 오디세이 표지" loading="lazy" decoding="async"><b>2001 스페이스 오디세이</b><span>아서 C. 클라크</span></a><a class="bk" href="./2026-04/newsletter/2026-07-08/" title="창백한 푸른 점 · 칼 세이건"><img src="./2026-04/assets/covers/2026-07-08/pale-blue-dot.png" alt="창백한 푸른 점 표지" loading="lazy" decoding="async"><b>창백한 푸른 점</b><span>칼 세이건</span></a><a class="bk" href="./2026-04/newsletter/2026-07-08/" title="우주에서 가장 작은 빛 · 사라 시거"><img src="./2026-04/assets/covers/2026-07-08/smallest-lights.png" alt="우주에서 가장 작은 빛 표지" loading="lazy" decoding="async"><b>우주에서 가장 작은 빛</b><span>사라 시거</span></a><a class="bk" href="./2026-04/newsletter/2026-07-08/" title="세상을 보는 눈, 융합 지성사 · 송만호·안중호·홍기빈·이은수"><img src="./2026-04/assets/covers/2026-07-08/integrated-history-of-thoughts.png" alt="세상을 보는 눈, 융합 지성사 표지" loading="lazy" decoding="async"><b>세상을 보는 눈, 융합 지성사</b><span>송만호·안중호·홍기빈·이은수</span></a><a class="bk" href="./2026-04/newsletter/2026-07-08/" title="우리가 빛의 속도로 갈 수 없다면 · 김초엽"><img src="./2026-04/assets/covers/2026-07-08/cannot-go-at-speed-of-light.png" alt="우리가 빛의 속도로 갈 수 없다면 표지" loading="lazy" decoding="async"><b>우리가 빛의 속도로 갈 수 없다면</b><span>김초엽</span></a></div>
+  <details>
+    <summary>주제별 전체 목록 보기</summary>
+    <div class="sec"><h3>01 · 달과 우주 탐사</h3><ul><li><b>천문학자는 별을 보지 않는다</b> <em>심채경</em></li><li><b>나는 어쩌다 명왕성을 죽였나</b> <em>마이크 브라운</em></li><li><b>우주비행사의 지구생활 안내서</b> <em>크리스 해드필드</em></li><li><b>아르테미스</b> <em>앤디 위어</em></li></ul></div><div class="sec"><h3>02 · 우주의 탄생·시간·블랙홀</h3><ul><li><b>코스모스</b> <em>칼 세이건</em></li><li><b>코스모스: 가능한 세계들</b> <em>앤 드루얀</em></li><li><b>짧고 쉽게 쓴 시간의 역사</b> <em>스티븐 호킹·레오나르드 믈로디노프</em></li><li><b>인터스텔라의 과학</b> <em>킵 손</em></li></ul></div><div class="sec"><h3>03 · 우주를 이해하는 물리와 관측</h3><ul><li><b>평행우주</b> <em>미치오 카쿠</em></li><li><b>엘러건트 유니버스</b> <em>브라이언 그린</em></li><li><b>블랙홀 전쟁</b> <em>레너드 서스킨드</em></li><li><b>이명현의 별 헤는 밤</b> <em>이명현</em></li></ul></div><div class="sec"><h3>04 · 외계생명·첫 접촉</h3><ul><li><b>프로젝트 헤일메리</b> <em>앤디 위어</em></li><li><b>콘택트</b> <em>칼 세이건</em></li><li><b>삼체 1</b> <em>류츠신</em></li><li><b>2001 스페이스 오디세이</b> <em>아서 C. 클라크</em></li></ul></div><div class="sec"><h3>05 · 우주에서 인간과 지구를 보다</h3><ul><li><b>창백한 푸른 점</b> <em>칼 세이건</em></li><li><b>우주에서 가장 작은 빛</b> <em>사라 시거</em></li><li><b>세상을 보는 눈, 융합 지성사</b> <em>송만호·안중호·홍기빈·이은수</em></li><li><b>우리가 빛의 속도로 갈 수 없다면</b> <em>김초엽</em></li></ul></div>
+  </details>
+</article>
+  </main>
+  <footer>
+    © 2026 제주대학교 중앙도서관 · <a href="https://lib.jejunu.ac.kr/">도서관 홈페이지</a> · <a href="../">아카이브 홈</a>
+  </footer>
+</div>
+</body>
+</html>
