@@ -23,16 +23,13 @@ https://libjeju.github.io/books/
 ### 현재 등록된 회차
 
 ```text
-2026년 5번째 추천도서 (최신)
-폴더명: issues/2026-05
-
 2026년 4번째 추천도서
 폴더명: issues/2026-04
 ```
 
 ---
 
-## 2. 회차별 주요 주소
+## 2. 현재 회차 주요 주소
 
 ### 전체 추천도서 아카이브 홈
 
@@ -40,24 +37,34 @@ https://libjeju.github.io/books/
 https://libjeju.github.io/books/
 ```
 
-### 2026년 5번째 추천도서 — 텍스트에서 스크린으로 (2026년 9–10월)
+### 2026년 4번째 추천도서 회차 홈
 
 ```text
-회차 홈       https://libjeju.github.io/books/issues/2026-05/
-뉴스레터       https://libjeju.github.io/books/issues/2026-05/newsletter/2026-09-10/
-카드뉴스       https://libjeju.github.io/books/issues/2026-05/cardnews/2026-09-10/
-이메일 발송용   https://libjeju.github.io/books/issues/2026-05/email/2026-09-10/
-포스터 자료     https://libjeju.github.io/books/issues/2026-05/posters/
+https://libjeju.github.io/books/issues/2026-04/
 ```
 
-### 2026년 4번째 추천도서 — 달을 읽는 여름밤 (2026년 7–8월)
+### 뉴스레터
 
 ```text
-회차 홈       https://libjeju.github.io/books/issues/2026-04/
-뉴스레터       https://libjeju.github.io/books/issues/2026-04/newsletter/2026-07-08/
-카드뉴스       https://libjeju.github.io/books/issues/2026-04/cardnews/2026-07-08/
-이메일 발송용   https://libjeju.github.io/books/issues/2026-04/email/2026-07-08/
-포스터 자료     https://libjeju.github.io/books/issues/2026-04/posters/
+https://libjeju.github.io/books/issues/2026-04/newsletter/2026-07-08/
+```
+
+### 카드뉴스
+
+```text
+https://libjeju.github.io/books/issues/2026-04/cardnews/2026-07-08/
+```
+
+### 이메일 발송용 페이지
+
+```text
+https://libjeju.github.io/books/issues/2026-04/email/2026-07-08/
+```
+
+### 포스터 자료 페이지
+
+```text
+https://libjeju.github.io/books/issues/2026-04/posters/
 ```
 
 ---
